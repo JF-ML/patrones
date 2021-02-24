@@ -13,6 +13,9 @@ public class BddDriver {
 		bdd2.guardar();
 		System.out.println("----------");
 		bdd3.guardar();
+		System.out.println("----------");
+		bdd3.setCrear(new SentenciaUno());
+		bdd3.guardar();
 	}
 
 }
