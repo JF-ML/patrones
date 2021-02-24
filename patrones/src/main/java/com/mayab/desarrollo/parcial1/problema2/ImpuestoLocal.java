@@ -1,15 +1,26 @@
 package com.mayab.desarrollo.parcial1.problema2;
 
 public class ImpuestoLocal extends ProductoDecorator{
-	ProductoPrecio p;
+	Producto p;
 	
-	public ImpuestoLocal(ProductoPrecio p) {
+	public ImpuestoLocal(Producto p) {
 		this.p=p;
+		setName(p.getName());
+		setPrecio(p.getPrecio());
+		setPrecioOriginal(p.getPrecioOriginal());
 	}
 	
 	@Override
 	public String descripcion() {
-		setPrecio(p.getPrecio()+(p.getPrecio()*0.02));
-		return p.descripcion()+"+"+(p.getPrecio()*0.02);
+		
+		return p.descripcion()+"+"+(this.p.getPrecio()*0.02);
 	}
+	@Override
+	public double costo() {
+		// TODO Auto-generated method stub
+		double precio =p.getPrecio()+(this.p.getPrecio()*0.02);;
+		p.setPrecio(precio);
+		return precio;
+	}
+	
 }

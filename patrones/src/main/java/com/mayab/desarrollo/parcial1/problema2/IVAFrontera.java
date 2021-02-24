@@ -1,15 +1,28 @@
 package com.mayab.desarrollo.parcial1.problema2;
 
 public class IVAFrontera extends ProductoDecorator{
-	ProductoPrecio p;
+	Producto p;
 	
-	public IVAFrontera(ProductoPrecio p) {
+	public IVAFrontera(Producto p) {
 		this.p=p;
+		setName(p.getName());
+		setPrecio(p.getPrecio());
+		setPrecioOriginal(p.getPrecioOriginal());
 	}
 	
 	@Override
 	public String descripcion() {
-		setPrecio(p.getPrecio()+(p.getPrecio()*0.08));
-		return p.descripcion()+"+"+(p.getPrecio()*0.08);
+		
+		return p.descripcion()+"+"+(p.getPrecioOriginal()*0.08);
+	}
+	
+	@Override
+	public double costo() {
+		// TODO Auto-generated method stub
+		double precio =p.getPrecio()+(p.getPrecioOriginal()*0.08);;
+		
+		this.p.setPrecio(precio);
+		
+		return precio;
 	}
 }
