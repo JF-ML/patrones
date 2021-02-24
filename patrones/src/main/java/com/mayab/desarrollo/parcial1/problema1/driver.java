@@ -7,7 +7,8 @@ public class driver {
 		Registro r = new Registro();
 		Gerente g1 = new Gerente(r,"John");
 		Gerente g2 = new Gerente(r,"Peter");
-		
+		SMS s= new SMS(r,g1);
+		Email e = new Email(r,g1);
 		
 		r.registrarCompra(500);
 		r.registrarCompra(550);
@@ -20,6 +21,8 @@ public class driver {
 		System.out.println("---------");
 		
 		g1.printLog();
+		
+		g2.printLog();
 	}
 
 }
